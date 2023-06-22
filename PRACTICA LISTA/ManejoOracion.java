@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class ManejoOracion {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String oracion = "";        
+        String oracion = "";
         boolean salir = false;
         while (!salir) {
             mostrarMenu();
             System.out.print("Ingrese una opción: ");
             int opcion = scanner.nextInt();
-            
+
             switch (opcion) {
                 case 1:
                     if (oracion.isEmpty()) {
@@ -59,13 +59,13 @@ public class ManejoOracion {
                     System.out.println("Opción inválida. Intente nuevamente.");
                     break;
             }
-            
+
             System.out.println();
         }
-        
+
         scanner.close();
     }
-    
+
     public static void mostrarMenu() {
         System.out.println("----- MENÚ -----");
         System.out.println("1. Crear oración / Borrar oración");
@@ -79,66 +79,67 @@ public class ManejoOracion {
         System.out.println("9. Salir");
         System.out.println("-----------------");
     }
-    
+
     public static int contarCaracteres(String oracion) {
         return oracion.length();
     }
-    
+
     public static int contarPalabras(String oracion) {
         String[] palabras = oracion.split(" ");
         return palabras.length;
     }
-    
+
     public static void mostrarPalabrasOrdenadas(String oracion) {
         String[] palabras = oracion.split(" ");
         java.util.Arrays.sort(palabras);
-        
+
         for (String palabra : palabras) {
             System.out.println(palabra);
         }
     }
-    
+
     public static void mostrarPalabraPorPosicion(String oracion, int numero) {
         String[] palabras = oracion.split(" ");
-        
+
         if (numero >= 1 && numero <= palabras.length) {
             System.out.println("Palabra correspondiente: " + palabras[numero - 1]);
         } else {
             System.out.println("Número inválido. Intente nuevamente.");
         }
     }
-    
+
     public static void buscarPalabra(String oracion, String palabraBuscar) {
         String[] palabras = oracion.split(" ");
-        
+
         for (int i = 0; i < palabras.length; i++) {
             if (palabras[i].equals(palabraBuscar)) {
                 System.out.println("La palabra '" + palabraBuscar + "' fue encontrada en la posición " + (i + 1));
                 return;
             }
         }
-        
+
         System.out.println("La palabra '" + palabraBuscar + "' no fue encontrada en la oración.");
     }
-    
+
     public static void modificarPalabra(String oracion, Scanner scanner) {
         System.out.print("Ingrese la palabra a modificar: ");
         scanner.nextLine(); // Consumir el salto de línea anterior
         String palabraModificar = scanner.nextLine();
-        
+
         String[] palabras = oracion.split(" ");
-        
+
         for (int i = 0; i < palabras.length; i++) {
             if (palabras[i].equals(palabraModificar)) {
                 System.out.print("Ingrese la nueva palabra: ");
                 String nuevaPalabra = scanner.nextLine();
                 palabras[i] = nuevaPalabra;
-                
+
                 String nuevaOracion = String.join(" ", palabras);
                 System.out.println("Nueva oración modificada: " + nuevaOracion);
                 return;
             }
         }
-        
+
         System.out.println("La palabra '" + palabraModificar + "' no fue encontrada en la oración.");
-    }}
+    }
+}
