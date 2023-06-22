@@ -17,7 +17,6 @@ public class MiPrimerPrograma {
      System.out.println("Hola Este es un int/Entero " + Entero);  
      System.out.println("Hola Este es un long " + numeroLong);  
      System.out.println("Hola Este es un float " + decimales);  
-
      String nombre = "Cristian";
      int edad = 36;
      System.out.println("Hola Mi nombre es "+ nombre + " mi edad es "+edad+" años.");        
